@@ -15,7 +15,7 @@ const ItemCount = ({initial,stock,onAdd}) => {
      //sino no hace nada
      const clickAdd = () => {
           if (count>0) {
-               onAdd()
+               onAdd();
           }
      }
      return (
