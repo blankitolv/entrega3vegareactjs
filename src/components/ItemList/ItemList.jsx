@@ -1,25 +1,30 @@
 import React from "react";
-import { useState } from "react";
+import {useState,useEffect} from "react";
 import Item from "../Item/Item"
 import data from "../data/data"
 
 function ItemList (){
      const [item, setItem]= useState();
      const dataItems = data;
-     console.log ('Acá llega DATA ')
      console.log (dataItems)
+     useEffect(()=> {
+          const getItems = new Promise ((res,rej)=> {
+               setTimeout(()=> {
+                    res(dataItems.map (item => {
+                         console.log(item.imgSource);
+                         return(
+                              //llamo al Componente Item y le envío nombre e imagen
+                              <div key={item.id}>
+                                   <Item nombre={item.titulo} image={item.imgSource}/>
+                              </div>
 
-     let getItems = new Promise ((res,rej)=> {
-          setTimeout(()=> {
-               res(dataItems.map (item => {
-                    return(
-                         //llamo al Componente Item y le envío nombre e imagen
-                         <Item key={item.id} nombre={item.title} image={item.imgSource}/>
-                    )
-               }))
-          },2000)
-     })
-     getItems.then (item => {setItem(item)})
+                              
+                         )
+                    }))
+               },2000)
+          })
+          getItems.then (item => {setItem(item)})
+     },[])
      return (
           <>{item}</>
      )

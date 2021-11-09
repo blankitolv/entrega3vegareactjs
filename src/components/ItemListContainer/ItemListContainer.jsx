@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import ItemList from '../ItemList/ItemList'
 
@@ -33,7 +33,9 @@ function ItemListContainer({greeting}) {
      return (
           <>
                <ItemCount initial={1} stock={8} onAdd={onAdd} />
-               <ItemList/>
+               <div className="tarjetas">
+                    <ItemList/>
+               </div>
           </>
      )
 }
