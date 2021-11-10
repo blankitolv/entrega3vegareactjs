@@ -48,6 +48,13 @@ body {
 }
 
 .tarjetas {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.unaTarjeta {
+  margin: 10px;
+  padding: 10px;
 }
