@@ -27,11 +27,11 @@ function ItemListContainer({greeting}) {
      const [productos, setproductos] = useState([])
      useEffect(() => {
           getFetch
-          .then (res => setproductos(res))
-          .then (() => console.log (productos))
-          .catch (err => console.log (err))
+          .then (res => setproductos (res))
+          .catch ( err => console.log (err))
           .finally(()=> console.log ('finalizo correctamente'))
      },[])
+
      const [item, setItem] = useState('');
      const onAdd=(count)=>{
           setItem(console.log('el item se agrego al carrito '+item));
