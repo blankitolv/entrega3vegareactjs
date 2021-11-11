@@ -36,12 +36,6 @@ function ItemListContainer({greeting}) {
      const onAdd=(count)=>{
           setItem(console.log('el item se agrego al carrito '+item));
      }
-     // camino
-     // 1 realizo el fetch -> la promise y asigno a setproductos el response 
-     // llamo a ItemList y le envío como prop productos (que vino de la promise)
-     // dentro del return genero un map que: se descarga completamente enviando en cada vuelta a [item] para ser armado y viaja
-     // hasta ItemListContainer, Que al estar en un return, se plasma completo en app
-
      return (
           <>
                <ItemCount initial={1} stock={8} onAdd={onAdd} />

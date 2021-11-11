@@ -12,7 +12,7 @@ const [prod, setProd] = useState({})
      },[])
           console.log (prod)
      return (
-          <div className="ItemDetail">
+          <div className="itemDetail">
                <ItemDetail prop_producto={prod} key="1"/>
           </div>
      )
