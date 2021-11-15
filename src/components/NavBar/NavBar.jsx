@@ -3,13 +3,13 @@ import Nav from "react-bootstrap/Nav"
 import Container from "react-bootstrap/Container"
 import NavDropdown from "react-bootstrap/NavDropdown"
 import IconCart from '../CartWidget/CartWidget'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 function NavBar() {
      return (
           // navbar navbar-dark bg-primary
           <Navbar bg="success" variant="dark" style={{height: '20vh'}}>
                <Container fluid>
-                    <Link to="/">
+                    <Link className="noBlue" to="/">
                          <Navbar.Brand>Editorial Intelectos</Navbar.Brand>                    
                     </Link>
                <Navbar.Toggle aria-controls="navbarScroll" />
@@ -19,18 +19,14 @@ function NavBar() {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                >
-                    <Link to="/">Inicio</Link>
-                    <Link to="/">Productos</Link>
-                    <Link to="/categoria/rockArg">Rock Nacional</Link>
-                    <Link to="/categoria/folkloreArg">Folklore </Link>
-                    <Link to="/categoria/trovador">Trova</Link>
+                    <Link className="noBlue navBarTitle" to="/">Inicio</Link>
+                    <Link className="noBlue navBarTitle" to="/categoria/rockArg">Rock Nacional</Link>
+                    <Link className="noBlue navBarTitle" to="/categoria/folkloreArg">Folklore </Link>
+                    <Link className="noBlue navBarTitle" to="/categoria/trovador">Trova</Link>
                     <NavDropdown title="Contacto" id="navbarScrollingDropdown">
                          <NavDropdown.Item href="#action3">Redes</NavDropdown.Item>
                          <NavDropdown.Item href="#action4">Ubicación</NavDropdown.Item>
                     </NavDropdown>
-                    {/* <Nav.Link href="#" disabled>
-                    Link
-                    </Nav.Link> */}
                </Nav>
                     <Link to='/cart'>
                          <IconCart/>

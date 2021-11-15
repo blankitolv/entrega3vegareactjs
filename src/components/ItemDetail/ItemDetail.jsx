@@ -1,11 +1,6 @@
 import React from "react";
 import {Card,Button}from "react-bootstrap"
 const ItemDetail = ({prop_producto}) => {
-     /* {id:"1", imgSource:"https://i.ibb.co/d6T3r1c/c-CALAMARO.jpg", titulo: "Calamaro", pcio: 210, stock:"56", alt:"imagen cancionero"},
-          .itemDetail {
-               display:flex
-          }
-     */
      return (
           <Card className="tarjeta" style={{ width: '40rem' }}>
                <Card.Img variant="top" src={prop_producto.imgSource} />

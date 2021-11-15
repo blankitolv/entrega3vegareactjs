@@ -12,10 +12,6 @@ const productos = [
      {id:"11", imgSource:"https://i.ibb.co/RS8mgGT/c-GARCIA.jpg",     titulo: "Charly García",           cat: "rockArg",          pcio:200, stock:"26", alt:"imagen cancionero", desc:'<sin descripcion>'},
 ];
 let prodAleatorio = Math.floor(Math.random() * (productos.length - 1)) + 1;
-console.log ('-- FETCHBD --')
-// console.log (productos[1]) 
-// console.log (prodAleatorio);
-console.log ('-- FIN FETCHBD --')
 
 export const unProducto_fetch = new Promise ((res,rej)=> {
      setTimeout(() => {

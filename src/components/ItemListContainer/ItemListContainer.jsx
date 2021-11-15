@@ -9,7 +9,6 @@ function ItemListContainer() {
      const { catId } = useParams()
      const [productos, setproductos] = useState([])
      useEffect(() => {
-
           if (catId){
                todosProductos
                .then (res => {

@@ -1,7 +1,5 @@
 import React from "react";
-// import {useState,useEffect} from "react";
 import Item from "../Item/Item"
-// import data from "../data/data"
 function ItemList ({productosCompletos}){
      return (
           <>
