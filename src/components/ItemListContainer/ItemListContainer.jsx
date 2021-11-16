@@ -30,7 +30,7 @@ function ItemListContainer() {
      }
      return (
           <>
-               <ItemCount initial={1} stock={8} onAdd={onAdd} />
+               {/* <ItemCount initial={1} stock={8} onAdd={onAdd} /> */}
                <div className="tarjetas">
                     <ItemList productosCompletos={productos}/>
                </div>

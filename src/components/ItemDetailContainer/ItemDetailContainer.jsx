@@ -20,11 +20,11 @@ function ItemDetailContainer () {
           }
      },[itemId])
 
-          console.log ('itemID '+itemId)
-          console.log (typeof(prod));
+          // console.log ('itemID '+itemId)
+          // console.log (typeof(prod));
      return (
           <div className="itemDetail">
-               <ItemDetail prop_producto={prod} />
+               <ItemDetail prop_producto={prod} stock_producto={prod.stock} />
           </div>
      )
 }
