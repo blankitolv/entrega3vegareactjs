@@ -11,7 +11,7 @@ Editorial Intelectos es una WEB SPA con venta de productos afines
 ## Tecnologías 🚀
 
 Editorial Intelectos SPA es construido bajo estas tecnologías
-- [JS] - Javascript EMAS6
+- ![js-brands](./src/logos/js-brands.svg) [JS] - Javascript EMAS6
 - [JSX] -
 - [HTML 5] - Version 5
 - [CSS] - Version 3
@@ -19,4 +19,4 @@ Editorial Intelectos SPA es construido bajo estas tecnologías
 - [React Bootstrap] - Version 2.0.0
 - [Bootstrap] - Version 5.1.3
 - [React-Router-Dom] - Version 5.3.0
-- [node. js] - Version 6.14.15
+- [node. js] - Version 14.18.1
