@@ -6,7 +6,11 @@ Editorial Intelectos es una WEB SPA con venta de productos afines
 - Cancioneros
 
 > Al ser una SPA si quiere probar la página directamente necesita
-> visitarla en www.editorialIntelectos.com.ar 
+> visitarla en www.editorialIntelectos.com.ar
+# Utilizacion
+- Cuando los productos estén disponibles deberá hacer click sobre uno de ellos.
+- Una vez habierto el detalle del producto tendrá que establecer la cantidad <br>
+- clickar en el botón [ COMPRAR ] y posteriormente [LLEVAR AL CARRITO]
 ️
 ## Tecnologías 🚀
 
