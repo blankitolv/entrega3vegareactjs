@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from 'react'
-import ItemCount from '../ItemCount/ItemCount'
 import ItemList from '../ItemList/ItemList'
 import { todosProductos } from '../../services/fetchBd'
 import { useParams } from 'react-router-dom'
@@ -24,13 +23,8 @@ function ItemListContainer() {
           }
      },[catId])  // vuelve a disparar el useEffect cuando se varía catId
      console.log('catId= ',catId);
-     const [item, setItem] = useState('');
-     const onAdd=(count)=>{
-          setItem(console.log('el item se agrego al carrito '+item));
-     }
      return (
           <>
-               {/* <ItemCount initial={1} stock={8} onAdd={onAdd} /> */}
                <div className="tarjetas">
                     <ItemList productosCompletos={productos}/>
                </div>

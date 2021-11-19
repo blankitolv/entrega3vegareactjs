@@ -1,21 +1,21 @@
 import React,{useState,useEffect} from "react";
-import {Card,Button}from "react-bootstrap"
+import {Card}from "react-bootstrap"
 import ItemCount from "../ItemCount/ItemCount";
-const ItemDetail = ({prop_producto,stock_producto}) => {
+import { Link } from 'react-router-dom'
+// import { CartContext } from "../../context/CartContext"
 
+const ItemDetail = ({prop_producto,stock_producto}) => {
+     const [stock,setStock] = useState(0)
+     const [wasClick,setWasClicked] = useState(false)
      useEffect(() => {
           setStock(parseInt(stock_producto));
      }, [stock_producto])
 
-     console.log (parseInt(stock_producto))
-     const [stock,setStock] = useState(0)
-     const [item, setItem] = useState(0)
+     // const {agregaCarrito,carList} = useContext(CartContext)
 
-     const onAdd = () => {
-          item + 1 <= stock ? setItem(item + 1) : alert ('sin más stock')
-     }
-     const onRes = () => {
-          item - 1 >= 0 ? setItem(item-1) : setItem(0)
+     function onAdd (count) {
+          console.log ('se compraron '+count);
+          setWasClicked(true);
      }
      return (
           <Card className="tarjeta" style={{ width: '40rem' }}>
@@ -26,8 +26,16 @@ const ItemDetail = ({prop_producto,stock_producto}) => {
                     <Card.Text>
                          {prop_producto.desc}
                     </Card.Text>
-                    <ItemCount onAdd={onAdd} onRes={onRes}cantidad={item}/>
-                    {/* <Button variant="primary">Agregar al carrito</Button> */}
+                    {
+                         wasClick ? (
+                         <Link to="/cart">
+                              <button className="btn btn-success"> LLEVAR AL CARRITO </button>
+                         </Link>
+                         )
+                         : (
+                              <ItemCount initial={1} stock={stock} onAdd={onAdd}/>
+                         )
+                    }
                </Card.Body>
           </Card>
      )

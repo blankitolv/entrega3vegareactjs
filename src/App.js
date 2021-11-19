@@ -5,23 +5,26 @@ import Cart from './components/Cart/Cart.jsx'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import CartContextProvider from './context/CartContext';
 import Ejemplo2 from './components/Ejemplo2/Ejemplo2';
 // import Ejemplo from './components/Ejemplo/Ejemplo';
 
 function App() {
   return (
     <div className="App">
-        {/* <Ejemplo/>  EJEMPLO DE LA CLASE*/}
+        {/* <Ejemplo/>  EJEMPLO DE LA CLASE */}
         {/* <Ejemplo2/> */}
-        <BrowserRouter>
-          <NavBar/>
-            <Switch>
-              <Route exact path='/' component={ ItemListContainer }/>
-              <Route exact path='/categoria/:catId' component={ ItemListContainer }/>
-              <Route exact path='/item/:itemId' component={ ItemDetailContainer }/>          
-              <Route exact path='/cart' component={ Cart }/>
-            </Switch>
-        </BrowserRouter>
+        <CartContextProvider>
+          <BrowserRouter>
+            <NavBar/>
+              <Switch>
+                <Route exact path='/' component={ ItemListContainer }/>
+                <Route exact path='/categoria/:catId' component={ ItemListContainer }/>
+                <Route exact path='/item/:itemId' component={ ItemDetailContainer }/>          
+                <Route exact path='/cart' component={ Cart }/>
+              </Switch>
+          </BrowserRouter>
+        </CartContextProvider>
     </div>    
   );
 }
