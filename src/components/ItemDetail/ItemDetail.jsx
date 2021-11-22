@@ -8,18 +8,20 @@ import { CartContext } from "../../context/CartContext"
 // a item detail llega 1 sólo producto
 const ItemDetail = ({prop_producto,stock_producto}) => {
      const [stock,setStock] = useState(0)
-     const [wasClick,setWasClicked] = useState(false)
+     // del contexto, llega la función *agregaCarrito* y el estado de productos cargados *carList*
+     const {agregaCarrito} = useContext(CartContext)
     
      useEffect(() => {
           setStock(parseInt(stock_producto));
      }, [stock_producto])
 
-     // del contexto, llega la función *agregaCarrito* y el estado de productos cargados *carList*
-     const {agregaCarrito} = useContext(CartContext)
+     
+     const [wasClick,setWasClicked] = useState(false)
+
 
      function onAdd (count) {
-          console.log ('se compraron '+count);
-          agregaCarrito({...prop_producto, cantidad: count});
+          // console.log ('se compraron '+count);
+          agregaCarrito({...prop_producto, cantidad: count},count);
           setWasClicked(true);
      }
 

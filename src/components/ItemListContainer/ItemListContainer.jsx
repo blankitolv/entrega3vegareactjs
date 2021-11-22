@@ -22,7 +22,6 @@ function ItemListContainer() {
                .finally(()=> console.log ('finalizo correctamente'))
           }
      },[catId])  // vuelve a disparar el useEffect cuando se varía catId
-     console.log('catId= ',catId);
      return (
           <>
                <div className="tarjetas">
