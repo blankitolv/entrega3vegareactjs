@@ -12,3 +12,4 @@ const ItemList = memo (
 export default ItemList;
 // anterior y posterior almacenan todas las props
 // si se cumple la condición, no se renderiza
+
