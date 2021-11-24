@@ -1,13 +1,22 @@
-import React,{createContext,useState} from "react";
+import React,{createContext,useState,useEffect} from "react";
 // el context debe ser exportable
 export const CartContext = createContext ([]);
 
 
 //CartContextProvider tiene como param los childrens
 const CartContextProvider = ({children}) => {
+
+     
      // useState -> este es mi carrito de compras
-     const [carList, setCarList] = useState([])
+     const [carList, setCarList] = useState([]);
      const [montoCompra, setMontoCompra] = useState(0);
+     const [testigo, setTestigo] = useState(0);
+
+     //cuanto se modifica el estado de carList, dispara la modificación del testigo
+     useEffect(() => {
+          testigoCarrito()
+     }, [carList])
+
      const sumarUno = (item,count) => {
           const newCarList=[];
           carList.forEach(element => {
@@ -26,6 +35,14 @@ const CartContextProvider = ({children}) => {
                }
           })
      }
+     const testigoCarrito = () => {
+          let acum=0;
+          carList.forEach(element => {
+               acum+=element.cantidad; 
+          });
+          setTestigo(acum);
+     }
+     
      // function agregaCarrito -> llega el item y lo agrega al carrito
      const agregaCarrito=(item,count)=> {
           /// si no está (-1) lo agrego
@@ -39,33 +56,42 @@ const CartContextProvider = ({children}) => {
           }
           console.log (carList);
      }
+
+
      const removeItem =(id)=>{
           setCarList (carList.filter(unItem => unItem.id !== id ));
      }
+
+
      const clearCarrito =()=>{
           setCarList([]);
      }
+
+
      const totalCompra=()=> {
           let acum=0;
           carList.forEach(element => {
                acum+=element.pcio*element.cantidad;
+
           });
           setMontoCompra(acum);
           console.log ('** montoCompra **')
           console.log (montoCompra)
      }
+
+     
      return (
           // cart context real
           <CartContext.Provider value={{
                // atributos y funciones globales para usar en toda la app
                carList,
+               montoCompra,
+               testigo,
                setCarList,
                agregaCarrito,
                removeItem,
                clearCarrito,
-               totalCompra,
-               montoCompra
-
+               totalCompra
           }}>
                {/* le agrega a los hijos, en este caso, app */}
                {children}
