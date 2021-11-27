@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react'
 import ItemList from '../ItemList/ItemList'
 import { todosProductos } from '../../services/fetchBd'
 import { useParams } from 'react-router-dom'
+import { getFireStore } from '../../services/getFirestore'
 
 // --------------------------- ITEM LIST CONTAINER ----------
 function ItemListContainer() {
@@ -9,6 +10,10 @@ function ItemListContainer() {
      const [productos, setproductos] = useState([])
      const [isLoading, setIsLoading] = useState(true)
      useEffect(() => {
+          const dbQuery = getFireStore()
+          dbQuery.collection('items').get()
+               .then ( response => console.log (response));
+
           // mostrar por categoría
           if (catId){
                todosProductos
