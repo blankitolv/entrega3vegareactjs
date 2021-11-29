@@ -3,8 +3,6 @@ import { CartContext } from "../../context/CartContext";
 import {Table,Button} from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
-
-
 function Cart() {
      const {carList,removeItem,clearCarrito,totalCompra,montoCompra} = useContext(CartContext);
      const [tieneArticulos, setTieneArticulos] = useState(false)

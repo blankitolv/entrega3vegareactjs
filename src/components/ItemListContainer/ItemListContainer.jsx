@@ -1,44 +1,37 @@
 import React, { useState,useEffect } from 'react'
 import ItemList from '../ItemList/ItemList'
-import { todosProductos } from '../../services/fetchBd'
 import { useParams } from 'react-router-dom'
 import { getFireStore } from '../../services/getFirestore'
-
-// --------------------------- ITEM LIST CONTAINER ----------
 function ItemListContainer() {
      const { catId } = useParams()
      const [productos, setproductos] = useState([])
+     // const [prod, setProd] = useState({}) itemDetail
      const [isLoading, setIsLoading] = useState(true)
      useEffect(() => {
-          const dbQuery = getFireStore()
-          dbQuery.collection('items').get()
-               .then ( response => console.log (response));
-
-          // mostrar por categoría
-          if (catId){
-               todosProductos
-               .then (res => {
-                    setproductos(res.filter(pro => pro.cat === catId))
-                    setTimeout(() => {
-                         setIsLoading(false)
-                    },2000);
-               })
-               .catch ( err => console.log (err))
-               .finally(()=> console.log ('finalizo correctamente'))
+          setIsLoading(true);
+          // !! si tengo un parametro en catId ejecuta el primer caso, sino ejecuta else
+          if (catId) {
+               //dbQuery ahora tiene el callback de getFireStore() que explicité en getFireStore.js
+               const dbQuery = getFireStore()
+               dbQuery
+               .collection('items')
+               .where('cat','==',catId)
+               .get()
+               .then (data => setproductos( data.docs.map(unProducto => ( { id:unProducto.id,...unProducto.data() } )  )))
+               .catch (err => console.log (err))
+               .finally(()=> setIsLoading(false));
           } else {
-               // mostrar todos
-               todosProductos
-               // .then (res => setproductos (res))
-               .then (res => {
-                    setproductos(res)
-                    setTimeout(() => {
-                         setIsLoading(false)
-                    },2000);
-               })
-               .catch ( err => console.log (err))
-               .finally(()=> console.log ('finalizo correctamente'))
+               const dbQuery = getFireStore()
+               dbQuery
+               .collection('items')
+               .get()
+               // .data() extrae los datos que están dentro del response (linea:44)
+               .then (data => setproductos( data.docs.map(unProducto => ( { id:unProducto.id,...unProducto.data() } )  )))
+               .catch (err => console.log (err))
+               .finally(()=> setIsLoading(false));
           }
-     },[catId])  // vuelve a disparar el useEffect cuando se varía catId
+     // vuelve a disparar el useEffect cuando se varía catId
+     },[catId])
      return (
           <>
                {
@@ -49,7 +42,6 @@ function ItemListContainer() {
                          <ItemList productosCompletos={productos}/>
                     </div>
                }
-
           </>
      )
 }
