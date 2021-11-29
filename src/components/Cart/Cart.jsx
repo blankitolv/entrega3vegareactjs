@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function Cart() {
      const {carList,removeItem,clearCarrito,totalCompra,montoCompra} = useContext(CartContext);
      const [tieneArticulos, setTieneArticulos] = useState(false)
-
+     
      const handleRemove=(id)=>{
           removeItem(id);
      }
@@ -20,6 +20,7 @@ function Cart() {
      useEffect(() => {
           hasCarList();
           totalCompra();
+          console.log (carList);
      }, [handleRemove,handleRemoveAll,tieneArticulos])
 
      return (

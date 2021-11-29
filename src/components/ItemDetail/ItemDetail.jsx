@@ -34,7 +34,7 @@ const ItemDetail = ({prop_producto}) => {
                          <Card.Img variant="top" src={prop_producto.imgSource} />
                          <Card.Body>
                               <Card.Title>{prop_producto.titulo}</Card.Title>
-                              <Card.Title>$ {prop_producto.pcio} - cod INT0{prop_producto.id[1][2][3]} </Card.Title>
+                              <Card.Title>$ {prop_producto.pcio} - cod INT0{prop_producto.id} </Card.Title>
                               <Card.Text>
                                    {prop_producto.desc}
                               </Card.Text>
