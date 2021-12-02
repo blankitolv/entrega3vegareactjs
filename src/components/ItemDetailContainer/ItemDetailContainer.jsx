@@ -2,9 +2,6 @@ import React,{useState,useEffect} from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
 import { getFireStore } from '../../services/getFirestore'
-// import { todosProductos } from '../../services/fetchBd' (antiguo bd fetch )
-
-
 function ItemDetailContainer () {
      const { itemId } = useParams()
      const [prod, setProd] = useState({})

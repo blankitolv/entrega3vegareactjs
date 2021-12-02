@@ -16,8 +16,8 @@ const CartWidget = () => {
      }
      return (
           <div className="iconAndIndicator">
-               <img className="cIconCart" style={boxStyle} src={IconCart} alt='Imagen de carrito'/>
-               <div className="containerTestigo" style={addStyle}>
+               <img className="cIconCart" style={{boxStyle}} src={IconCart} alt='Imagen de carrito'/>
+               <div className="containerTestigo" style={{addStyle}}>
                     <p className="testigo">{ testigo }</p>
                </div>
           </div>

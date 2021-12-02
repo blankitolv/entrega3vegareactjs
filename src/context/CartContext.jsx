@@ -15,6 +15,7 @@ const CartContextProvider = ({children}) => {
      //cuanto se modifica el estado de carList, dispara la modificación del testigo
      useEffect(() => {
           testigoCarrito()
+          // eslint-disable-next-line
      }, [carList])
 
      const sumarUno = (item,count) => {
@@ -72,11 +73,9 @@ const CartContextProvider = ({children}) => {
           let acum=0;
           carList.forEach(element => {
                acum+=element.pcio*element.cantidad;
-
           });
           setMontoCompra(acum);
-          console.log ('** montoCompra **')
-          console.log (montoCompra)
+          return montoCompra;
      }
 
      
