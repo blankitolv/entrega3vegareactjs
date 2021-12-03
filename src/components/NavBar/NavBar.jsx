@@ -6,8 +6,7 @@ import IconCart from '../CartWidget/CartWidget'
 import { Link } from 'react-router-dom'
 function NavBar() {
      return (
-          // navbar navbar-dark bg-primary
-          <Navbar bg="success" variant="dark" style={{height: '20vh'}}>
+          <Navbar className="border-bottom" bg="light" variant="light" style={{height: '20vh'}}>
                <Container fluid>
                     <Link className="noBlue" to="/">
                          <Navbar.Brand>Editorial Intelectos</Navbar.Brand>                    

@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 import { getFireStore } from '../../services/getFirestore'
 function ItemListContainer() {
      const { catId } = useParams()
@@ -38,9 +39,10 @@ function ItemListContainer() {
                     isLoading?
                     <h3>Cargando...</h3>
                     :
-                    <div className="tarjetas">
+                    <div className="tarjetas mt-5" >
                          <ItemList productosCompletos={productos}/>
                     </div>
+
                }
           </>
      )

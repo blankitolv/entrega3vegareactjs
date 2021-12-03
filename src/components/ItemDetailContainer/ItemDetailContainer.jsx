@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import { Container } from 'react-bootstrap';
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
 import { getFireStore } from '../../services/getFirestore'
@@ -24,7 +25,7 @@ function ItemDetailContainer () {
      return (
           <div className="itemDetail">
                {
-               <ItemDetail prop_producto={prod}/>
+                    <ItemDetail prop_producto={prod}/>
                }
           </div>
      )

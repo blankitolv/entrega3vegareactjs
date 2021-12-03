@@ -5,25 +5,37 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import Cart from './components/Cart/Cart.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap'
 import './App.css';
-// import Ejemplo2 from './components/Ejemplo2/Ejemplo2';
-// import Ejemplo from './components/Ejemplo/Ejemplo';
 
 function App() {
   return (
     <div className="App">
-        {/* <Ejemplo/>  EJEMPLO DE LA CLASE */}
-        {/* <Ejemplo2/> */}
         {/* CartContextProvider es un componente que llama al ContextProvider real */}
         <CartContextProvider>
           <BrowserRouter>
             <NavBar/>
-              <Switch>
-                <Route exact path='/' component={ ItemListContainer }/>
-                <Route exact path='/categoria/:catId' component={ ItemListContainer }/>
-                <Route exact path='/item/:itemId' component={ ItemDetailContainer }/>          
-                <Route exact path='/cart' component={ Cart }/>
-              </Switch>
+              <Container className="
+              vw-100
+              min-vh-100>
+              "
+              >
+                <Container className="
+                d-flex
+                w-75
+                align-items-center                
+                justify-content-start
+                "
+                >
+                  <Switch>
+                    <Route exact path='/' component={ ItemListContainer }/>
+                    <Route exact path='/categoria/:catId' component={ ItemListContainer }/>
+                    <Route exact path='/item/:itemId' component={ ItemDetailContainer }/>          
+                    <Route exact path='/cart' component={ Cart }/>
+                  </Switch>                  
+                </Container>
+              </Container>
+
           </BrowserRouter>
         </CartContextProvider>
     </div>    
