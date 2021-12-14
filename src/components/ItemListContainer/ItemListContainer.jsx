@@ -1,13 +1,25 @@
 import React, { useState,useEffect } from 'react'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
-import { Container } from 'react-bootstrap'
+// import { Container } from 'react-bootstrap'
 import { getFireStore } from '../../services/getFirestore'
+import Lottie from "react-lottie";
+import lottieBookLoading from "../../gif/18081-book-bounce.json"
+
 function ItemListContainer() {
      const { catId } = useParams()
      const [productos, setproductos] = useState([])
      // const [prod, setProd] = useState({}) itemDetail
      const [isLoading, setIsLoading] = useState(true)
+
+     const defLottieLoading = {
+          loop:true,
+          autoplay:true,
+          rendererSettings: {
+               preserveAspectRatio: "xMidYMid slice"
+          }
+     }
+
      useEffect(() => {
           setIsLoading(true);
           // !! si tengo un parametro en catId ejecuta el primer caso, sino ejecuta else
@@ -37,7 +49,10 @@ function ItemListContainer() {
           <>
                {
                     isLoading?
-                    <h3>Cargando...</h3>
+                    (
+                    <h3>Cargando...</h3>,
+                    <Lottie options={{animationData:lottieBookLoading,...defLottieLoading}} height={300} width={300} speed={0.5} />
+                    )
                     :
                     <div className="tarjetas mt-5" >
                          <ItemList productosCompletos={productos}/>

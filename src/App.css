@@ -67,10 +67,10 @@ body {
 }
 
 .unaTarjeta {
-  margin: 10px;
-  padding: 10px;
+  margin: 15px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
 .cadaTarjeta {
   transition:all 0.5s ease-in-out;
   transform: scale(1);
@@ -80,6 +80,9 @@ body {
 .cadaTarjeta:hover {
   transform: scale(1.1);
   z-index: 2;
+}
+.cadaTarjeta:hover > .unaTarjeta {
+  transition: all .5s;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -104,23 +107,20 @@ body {
   display:flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(132, 255, 132);
+  background-color: rgba(213, 216, 213, 0.945);
   border-radius: 50%;
   min-height: 15px;
   max-height: 23px;
   min-width: 20px;
   max-width: 23px;
   text-decoration: none;
+  position: absolute;
+  top: 60%;
+  left: 10%;
 }
 .iconAndIndicator .containerTestigo .testigo{
 margin: 0 auto;
 text-decoration: none;
-}
-.iconAndIndicator .containerTestigo {
-  text-decoration: none;
-  position: absolute;
-  top: 50%;
-  left: 10%;
 }
 
 .unaTarjeta {
@@ -130,11 +130,63 @@ text-decoration: none;
 }
 .fondo {
   filter:blur(10px) brightness(120%) grayscale(50%);
-  position: relative;
   /* backgroundImage:url(${prop_producto.imgSource}); */
   background-size:cover;
   background-position:center;
+  position: absolute;
+  /* background-color: #c4bbbb; */
 } 
-.image {
-  box-shadow: rgba(0, 0, 0, 0.274) 0px 4px 6px -1px, rgba(0, 0, 0, 0.562) 0px 2px 4px -1px;
+.main-section {
+  margin: 5rem auto;
+}
+
+.left-side-product-box img {
+  width: 100%;
+}
+
+.left-side-product-box .sub-img img {
+  margin-top: 5px;
+  width: 83px;
+  height: 100px;
+}
+
+.right-side-pro-detail span {
+  font-size: 15px;
+}
+
+.right-side-pro-detail p {
+  font-size: 25px;
+  color: #a1a1a1;
+}
+
+.right-side-pro-detail .price-pro {
+  color: #E45641;
+}
+
+.right-side-pro-detail .tag-section {
+  font-size: 18px;
+  color: #5D4C46;
+}
+
+.pro-box-section .pro-box img {
+  width: 100%;
+  height: 200px;
+}
+.navbar a {
+  text-decoration: none;
+  color:grey;
+}
+.tdItem{
+  max-width: 100px;
+  overflow-wrap: break-word;
+}
+
+.lottieSadBox > div{
+  transition-property: all;
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,0.9023984593837535) 0%, rgba(255,255,255,1) 58%, rgba(255,255,255,0) 74%);
+}
+.lottieSadBox:hover > div{
+  background: rgb(108,199,117);
+  background: radial-gradient(circle, rgba(108,199,117,0.9023984593837535) 0%, rgba(223,255,231,1) 58%, rgba(255,255,255,0) 74%);
 }
