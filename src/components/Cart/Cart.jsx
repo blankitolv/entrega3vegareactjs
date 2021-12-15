@@ -6,10 +6,9 @@ import { Link } from 'react-router-dom';
 import { getFireStore } from '../../services/getFirestore'
 import firebase from 'firebase'
 import 'firebase/firestore'
-// import Error from "../Error/Error";
 
-// Utilizé useHistory para pushear si hay algún error en el email y redireccionar
-// el navegador a "error"
+// Utilizé useHistory para pushear si hay algún error en el email y redireccionar -
+//- el navegador hacia "error"
 import { useHistory } from 'react-router-dom'
 //Estoy utilizando la librería Lottie que habilita la reproducción de animaciones 
 // (comúnmente llamado lottie) que son animaciones en formato JSON
@@ -46,12 +45,14 @@ function Cart() {
      const hasCarList = () => {
           carList.length === 0 ? setTieneArticulos(false) :  setTieneArticulos(true);          
      }
-     const emailAreEquals = () =>{
+     const validateDates = () =>{
           let aux;
-          if (email.toUpperCase()===email2.toUpperCase()) {
+          if ((email.toUpperCase()===email2.toUpperCase() && email!=='') && telefono!=='' && nombreCompleto!== '') {
+               console.log ('son iguales ===')
                aux=true;
           } else {
                aux=false;
+               console.log ('son distintos <>')
           }
           return aux;
      }
@@ -88,6 +89,8 @@ function Cart() {
      useEffect(() => {
           hasCarList();
           totalCompra();
+          // windows scro... lleva el navegador hacia arriba
+          window.scrollTo(0, 0);
           // eslint-disable-next-line
      }, [handleRemove,handleRemoveAll,tieneArticulos])
 
@@ -112,10 +115,10 @@ function Cart() {
                          </Alert>
                     :
                     <>
-                         <h1 className="h3">Carrito de compras</h1>
                          {
                               tieneArticulos === true? (   
                                    <>
+                                        <h1 className="h3 mt-3">Carrito de compras</h1>
                                         <Table striped bordered hover>
                                              <thead>
                                                   <tr>
@@ -145,44 +148,46 @@ function Cart() {
                                                        <td></td>
                                                        <td></td>
                                                        <td>Total</td>
-                                                       <td> <strong> $ {montoCompra} </strong> </td>
+                                                       <td className="table-success"> <strong> $ {montoCompra} </strong> </td>
                                                        <td></td>
                                                   </tr>
                                              </tbody>
                                         </Table>
                                         <Button variant="outline-danger" onClick={()=>handleRemoveAll()}> Vaciar Carrito </Button>
-                                        <Container fluid>
-                                             <Col md={5} >
-                                                  <Form >
-                                                       <Form.Group className="xs mb-3" controlId="formBasicName">
-                                                            <Form.Label>Ingrese su nombre</Form.Label>
-                                                            <Form.Control type="text" placeholder="Don Rodrigo Diaz de Carreras" value={nombreCompleto} onChange={event=>setNombreCompleto(event.target.value)}/>
-                                                       </Form.Group>
-                                                       <Form.Group className="md mb-3" controlId="formBasicPhone">
-                                                            <Form.Label>Ingrese su Telefono</Form.Label>
-                                                            <Form.Control className="md" type="text" placeholder="3413xxxxxx" value={telefono} onChange={event=>setTelefono(event.target.value)} />
-                                                       </Form.Group>
-                                                       <Form.Group className="xs mb-3" controlId="formBasicEmail">
-                                                            <Form.Label>Ingrese su Email</Form.Label>
-                                                            <Form.Control className="xs" type="text" placeholder="donrodrigo@altavista.com" value={email} onChange={event=>setEmail(event.target.value)}/>
-                                                            <Form.Control className="xs" type="text" placeholder="donrodrigo@altavista.com" value={email2} onChange={event=>setEmail2(event.target.value)}/>
-                                                       </Form.Group>
-                                                       {/* <Button variant="primary" type="submit">
-                                                       Submit
-                                                  </Button> */}
-                                                  </Form>      
+                                        <hr class="my-4"/>
+                                        <Container fluid className="d-flex justify-content-center">
+                                             <Col md={4} className="border border-secondary m-3 p-3">
+                                                  <h4>Datos del Comprador</h4>
+                                                  <hr class="my-4"/>
+                                                  <Col md={12} className="p-2 d-flex justify-content-center">
+                                                       <Form >
+                                                            <Form.Group className="xs mb-3" controlId="formBasicName">
+                                                                 <Form.Label className="text-center"><small>Ingrese su nombre</small></Form.Label>
+                                                                 <Form.Control className="text-center" type="text" placeholder="Don Rodrigo Diaz de Carreras" value={nombreCompleto} onChange={event=>setNombreCompleto(event.target.value)}/>
+                                                            </Form.Group>
+                                                            <Form.Group className="md mb-3" controlId="formBasicPhone">
+                                                                 <Form.Label className="text-center"><small>Ingrese su Telefono</small></Form.Label>
+                                                                 <Form.Control className="md text-center" type="text" placeholder="3413xxxxxx" value={telefono} onChange={event=>setTelefono(event.target.value)} />
+                                                            </Form.Group>
+                                                            <Form.Group className="xs mb-3" controlId="formBasicEmail">
+                                                                 <Form.Label className="text-center"><small>Ingrese su Email</small></Form.Label>
+                                                                 <Form.Control className="xs text-center" type="text" placeholder="donrodrigo@altavista.com" value={email} onChange={event=>setEmail(event.target.value)}/>
+                                                            </Form.Group>
+                                                            <Form.Group className="xs mb-3" controlId="formBasicEmail2">
+                                                                 <Form.Control className="xs text-center" type="text" placeholder="donrodrigo@altavista.com" value={email2} onChange={event=>setEmail2(event.target.value)}/>
+                                                            </Form.Group>
+                                                            <Button variant="outline-primary" onClick={ () => {
+                                                                 if (validateDates()) {
+                                                                      ordenDeCompra()
+                                                                 } else {
+                                                                      // pushea el render al link /error
+                                                                      history.push('/Error');
+                                                                 }}}>Finalizar la compra
+                                                            </Button>
+                                                       </Form>    
+                                                  </Col>  
                                              </Col>
                                         </Container>
-                                        <Button variant="outline-primary" onClick={ () => {
-                                             if (emailAreEquals===true) {
-                                                  console.log (emailAreEquals())
-                                                  ordenDeCompra()
-                                             } else {
-                                                  console.log ('estoy redireccionando...');
-                                                  history.push('/Error');
-                                             }
-                                        }}> Finalizar la compra </Button>
-                                        {/* <Button variant="outline-primary" onClick={()=>ordenDeCompra()}> Finalizar la compra </Button> */}
                                    </>    
                               ) : <>
                                         <div className="div" style={{ width: '100%', display:'flex', alignItems:'center', justifyContent:'center' }}>
@@ -192,7 +197,7 @@ function Cart() {
                                         </div>
                                         <h2>El carrito se encuentra vacío</h2>
                                         <p>
-                                             <Link to ="/">Ir a la pagina principal</Link> para sumar productos al carrito
+                                             <Link to ="/productos">Ir a la sección de productos </Link> para sumar algunos al carrito
                                         </p>
                                    </>
                          }

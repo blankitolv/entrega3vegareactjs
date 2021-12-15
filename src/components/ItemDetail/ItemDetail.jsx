@@ -68,7 +68,7 @@ const ItemDetail = ({prop_producto}) => {
                                                                  </Col>
                                                             </Link>
                                                                  <Col md={12} className="mt-2">
-                                                                      <Link to="/">
+                                                                      <Link to="/productos">
                                                                            <button className="btn btn-outline-primary"> Seguir Comprando </button>
                                                                       </Link>
                                                                  </Col>

@@ -10,7 +10,7 @@ const CartWidget = () => {
                <img src={ IconCart } alt="cart"/>
                {
                     testigo!==0?
-                         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                         <span className="point_testigo position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                               { testigo }
                               <span className="visually-hidden"></span>
                          </span>

@@ -1,15 +1,16 @@
 import React, { useState,useEffect } from 'react'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
-// import { Container } from 'react-bootstrap'
 import { getFireStore } from '../../services/getFirestore'
 import Lottie from "react-lottie";
 import lottieBookLoading from "../../gif/18081-book-bounce.json"
+import {Animated} from "react-animated-css";
 function ItemListContainer() {
      const { catId } = useParams()
      const [productos, setproductos] = useState([])
      // const [prod, setProd] = useState({}) itemDetail
      const [isLoading, setIsLoading] = useState(true)
+     const [bandera,setBandera]=useState(true)
 
      const defLottieLoading = {
           loop:true,
@@ -40,7 +41,12 @@ function ItemListContainer() {
                // .data() extrae los datos que están dentro del response (linea:44)
                .then (data => setproductos( data.docs.map(unProducto => ( { id:unProducto.id,...unProducto.data() } )  )))
                .catch (err => console.log (err))
-               .finally(()=> setIsLoading(false));
+               .finally(()=> {
+                    setBandera(false)
+                    setTimeout(() => {
+                         setIsLoading(false)
+                    }, 1500);
+               });
           }
      // vuelve a disparar el useEffect cuando se varía catId
      },[catId])
@@ -49,14 +55,16 @@ function ItemListContainer() {
                {
                     isLoading?
                     (
-                         <div className="mt-5 p-0" min-vh-100="true">
-                              <Lottie options={{animationData:lottieBookLoading,...defLottieLoading}} height={300} width={300} speed={0.5} />
-                         </div>
+                         <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={bandera}>
+                              <div className="mt-5 p-0" min-vh-100="true">
+                                   <Lottie options={{animationData:lottieBookLoading,...defLottieLoading}} height={300} width={300} speed={0.5} />
+                              </div>
+                         </Animated>
                     )
                     :
-                    <div className="tarjetas mt-5" >
-                         <ItemList productosCompletos={productos}/>
-                    </div>
+                         <div className="tarjetas mt-5" >
+                              <ItemList productosCompletos={productos}/>
+                         </div>
                     
                }
           </>

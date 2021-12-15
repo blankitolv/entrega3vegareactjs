@@ -79,7 +79,7 @@ body {
 
 }
 .cadaTarjeta:hover {
-  transform: scale(1.1);
+  transform: scale(0.9);
   z-index: 2;
 }
 .cadaTarjeta:hover > .unaTarjeta {
@@ -88,7 +88,7 @@ body {
 }
 
 .cadaTarjeta:active {
-  transform: scale(1.2);
+  transform: scale(1);
   z-index: 2;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
@@ -97,27 +97,15 @@ body {
   z-index: 2;
 }
 .cadaTarjeta:focus {
-  transform: scale(1.1);
+  transform: scale(0.5);
   z-index: 2;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .iconAndIndicator {
   position:relative
 }
-.iconAndIndicator .containerTestigo {
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(213, 216, 213, 0.945);
-  border-radius: 50%;
-  min-height: 15px;
-  max-height: 23px;
-  min-width: 20px;
-  max-width: 23px;
-  text-decoration: none;
-  position: absolute;
-  top: 60%;
-  left: 10%;
+.point_testigo{
+  transition: 1s all;
 }
 .iconAndIndicator .containerTestigo .testigo{
 margin: 0 auto;
