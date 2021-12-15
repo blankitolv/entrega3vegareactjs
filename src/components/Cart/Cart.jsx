@@ -52,7 +52,6 @@ function Cart() {
                aux=true;
           } else {
                aux=false;
-               setAlertaMail(false)
           }
           return aux;
      }

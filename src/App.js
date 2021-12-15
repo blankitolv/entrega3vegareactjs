@@ -7,6 +7,7 @@ import Cart from './components/Cart/Cart.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Error from './components/Error/Error';
+import HeroIndex from './components/HeroIndex/HeroIndex.jsx';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <BrowserRouter>
             <NavBar/>
               <Switch>
-                <Route exact path='/' component={ ItemListContainer }/>
+                <Route exact path='/' component={ HeroIndex } />
+                <Route exact path='/productos' component={ ItemListContainer } />
                 <Route exact path='/categoria/:catId' component={ ItemListContainer }/>
                 <Route exact path='/item/:itemId' component={ ItemDetailContainer }/>          
                 <Route exact path='/cart' component={ Cart }/>

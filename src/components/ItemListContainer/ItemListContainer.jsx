@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom'
 import { getFireStore } from '../../services/getFirestore'
 import Lottie from "react-lottie";
 import lottieBookLoading from "../../gif/18081-book-bounce.json"
-
 function ItemListContainer() {
      const { catId } = useParams()
      const [productos, setproductos] = useState([])
@@ -50,14 +49,15 @@ function ItemListContainer() {
                {
                     isLoading?
                     (
-                    <h3>Cargando...</h3>,
-                    <Lottie options={{animationData:lottieBookLoading,...defLottieLoading}} height={300} width={300} speed={0.5} />
+                         <div className="mt-5 p-0" min-vh-100="true">
+                              <Lottie options={{animationData:lottieBookLoading,...defLottieLoading}} height={300} width={300} speed={0.5} />
+                         </div>
                     )
                     :
                     <div className="tarjetas mt-5" >
                          <ItemList productosCompletos={productos}/>
                     </div>
-
+                    
                }
           </>
      )

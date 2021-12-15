@@ -5,24 +5,19 @@ import { CartContext } from '../../context/CartContext';
 const CartWidget = () => {
      
      const { testigo } = useContext(CartContext);
-     let addStyle={};
-     let boxStyle={};
-     if ( testigo === 0 ) {
-          console.log ('el valor de testigo es '+testigo)
-          addStyle = {display:"none"}
-     } else {
-          console.log ('el valor de testigo es '+testigo)
-          addStyle = {display:"flex", transition:"1s all"}
-          boxStyle = {backgroundColor:"#c4bbbb"}
-     }
-
      return (
-          <div className="iconAndIndicator">
-               <img className="cIconCart" style={ { boxStyle } } src={ IconCart } alt='Imagen de carrito'/>
-               <div className="containerTestigo" style= { addStyle } >
-                    <p className="testigo">{ testigo }</p>
-               </div>
-          </div>
+          <button type="button" className="btn btn-warning position-relative mx-5">
+               <img src={ IconCart } alt="cart"/>
+               {
+                    testigo!==0?
+                         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                              { testigo }
+                              <span className="visually-hidden"></span>
+                         </span>
+                    :
+                    <></>
+               }
+          </button>
      );
 }
 export default CartWidget

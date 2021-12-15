@@ -35,8 +35,9 @@ body {
   border-radius: 10px 10px;
 }
 
-.tarjetas { 
+.tarjetas {
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -189,4 +190,15 @@ text-decoration: none;
 .lottieSadBox:hover > div{
   background: rgb(108,199,117);
   background: radial-gradient(circle, rgba(108,199,117,0.9023984593837535) 0%, rgba(223,255,231,1) 58%, rgba(255,255,255,0) 74%);
+}
+.wallpaper {
+  padding: 0px;
+  background-image: linear-gradient(rgba(123, 123, 155, 0.5), rgba(182, 183, 235, 0.5)),
+                    url('./assets/2pexels-thought-catalog-904616.jpg');
+  background-position: center;
+  background-size: cover;
+}
+.bienvenidos {
+  background: rgba(32, 121, 255, 0.685);
+  line-height: 2rem;
 }
