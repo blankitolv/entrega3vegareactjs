@@ -48,8 +48,8 @@ function ItemListContainer() {
                     }, 1500);
                });
           }
-     // vuelve a disparar el useEffect cuando se varía catId
      },[catId])
+     
      return (
           <>
                {
