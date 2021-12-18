@@ -6,7 +6,7 @@ Editorial Intelectos es una WEB SPA con venta de productos afines
 - Cancioneros
 
 > Al ser una SPA si quiere probar la página directamente necesita
-> visitarla en <a href="https://flamboyant-davinci-d351a4.netlify.app/">www.editorialIntelectos.com.ar</a>
+> visitarla en <a target="_blank" href="https://flamboyant-davinci-d351a4.netlify.app/">www.editorialIntelectos.com.ar</a>
 
 # Utilizacion
 - Cuando los productos estén disponibles deberá hacer click sobre uno de ellos.
