@@ -31,8 +31,6 @@ function ItemDetailContainer () {
                .doc(`${itemId}`)
                .get()
                .then ( response => {
-                    console.log ('---+++response firebase+++----')
-                    console.log (response)
                     setProd( { id:response.id,...response.data() } )
                     setExistProducto (response.exists);
                })

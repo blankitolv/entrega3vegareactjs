@@ -48,13 +48,10 @@ const CartContextProvider = ({children}) => {
           /// si no está "-1" lo agrego
           const indexItem = carList.findIndex(unProducto => unProducto.id === item.id)
           if (indexItem === -1) {
-               console.log ('agregué un producto')
                setCarList([...carList,item])
           } else {
-               console.log ('sumé un producto')
                sumarUno(item,count)
           }
-          console.log (carList);
      }
 
 
