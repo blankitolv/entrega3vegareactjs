@@ -26,16 +26,16 @@ Editorial Intelectos SPA es construido bajo estas tecnologías
 - <img src="./src/logos/bootstrap-brands.svg" width="30" height="30"> BOOTSTRAP v5.1.3</img>
 - <img src="./src/logos/code-solid.svg" width="30" height="30"> REACT BOOTSTRAP v2.0.0</img>
 - <img src="./src/logos/code-solid.svg" width="30" height="30"> REACT-ROUTER-DOM v5.3.0</img>
-- <img src="./src/logos/code-solid.svg" width="30" height="30"> FireBase 8.9.1</img>
-- <img src="./src/logos/code-solid.svg" width="30" height="30"> react-animated-css 1.2.1</img>
+- <img src="./src/logos/code-solid.svg" width="30" height="30"> FIREBASE 8.9.1</img>
+- <img src="./src/logos/code-solid.svg" width="30" height="30"> REACT-ANIMATED-CSS 1.2.1</img>
 
 ## DEMOSTRACION
 - <img src="./src/logos/gifappEI.gif" width="700" height="500"></img>
 
 ## INSTALACIÓN
-> git clone https://github.com/blankitolv/entrega3vegareactjs
-> cd entrega3
-> npm i
-> npm run start
+> git clone https://github.com/blankitolv/entrega3vegareactjs <br>
+> cd entrega3 <br>
+> npm i <br>
+> npm run start <br>
 
 - desarrollador: lucasvega2@gmail.com
