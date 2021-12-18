@@ -26,4 +26,4 @@ Editorial Intelectos SPA es construido bajo estas tecnologías
 - <img src="./src/logos/code-solid.svg" width="30" height="30"> REACT-ROUTER-DOM v5.3.0</img>
 
 ## DEMOSTRACION
-- <img src="./src/logos/gifappEI.gif" width="400" height="500"></img>
+- <img src="./src/logos/gifappEI.gif" width="700" height="500"></img>
