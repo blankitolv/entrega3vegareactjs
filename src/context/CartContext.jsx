@@ -1,5 +1,5 @@
 import React,{createContext,useState,useEffect} from "react";
-// el context debe ser exportable
+
 export const CartContext = createContext ([]);
 
 
@@ -7,7 +7,6 @@ export const CartContext = createContext ([]);
 const CartContextProvider = ({children}) => {
 
      
-     // useState -> este es mi carrito de compras
      const [carList, setCarList] = useState([]);
      const [montoCompra, setMontoCompra] = useState(0);
      const [testigo, setTestigo] = useState(0);
@@ -46,7 +45,7 @@ const CartContextProvider = ({children}) => {
      
      // function agregaCarrito -> llega el item y lo agrega al carrito
      const agregaCarrito=(item,count)=> {
-          /// si no está (-1) lo agrego
+          /// si no está "-1" lo agrego
           const indexItem = carList.findIndex(unProducto => unProducto.id === item.id)
           if (indexItem === -1) {
                console.log ('agregué un producto')
@@ -92,7 +91,6 @@ const CartContextProvider = ({children}) => {
                clearCarrito,
                totalCompra
           }}>
-               {/* le agrega a los hijos, en este caso, app */}
                {children}
           </CartContext.Provider>
      )

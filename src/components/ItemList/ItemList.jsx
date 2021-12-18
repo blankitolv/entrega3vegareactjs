@@ -1,4 +1,4 @@
-import React,{memo} from "react";
+import React,{ memo } from "react";
 import Item from "../Item/Item"
 const ItemList = memo (
      ({productosCompletos}) => {

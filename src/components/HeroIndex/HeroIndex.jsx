@@ -15,7 +15,7 @@ const HeroIndex = () => {
                               <Link to="/productos">
                                    <button type="button" className="btn btn-primary btn-lg px-4 gap-3">Ver Productos</button>
                               </Link>
-                              <button type="button" className="btn btn-outline-success fw-bold btn-lg px-4">Contacto</button>
+                              <button type="button" className="btn btn-outline-success fw-bold btn-lg px-4" disabled>Contacto</button>
                               </div>
                          </div>
                     </div>

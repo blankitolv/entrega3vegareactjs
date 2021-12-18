@@ -7,8 +7,8 @@ import { getFireStore } from '../../services/getFirestore'
 import firebase from 'firebase'
 import 'firebase/firestore'
 
-// Utilizé useHistory para pushear si hay algún error en el email y redireccionar -
-//- el navegador hacia "error"
+// Utilizé useHistory para pushear si hay algún error en el email y redireccionar el
+// navegador hacia "error"
 import { useHistory } from 'react-router-dom'
 //Estoy utilizando la librería Lottie que habilita la reproducción de animaciones 
 // (comúnmente llamado lottie) que son animaciones en formato JSON
@@ -33,8 +33,7 @@ function Cart() {
      const [email2, setEmail2] = useState('')
      const [alerta, setAlerta] = useState(false)
      const [idCompra,setIdCompra] = useState('')
-
-     
+ 
      const handleRemove=(id)=>{
           removeItem(id);
      }
@@ -48,11 +47,9 @@ function Cart() {
      const validateDates = () =>{
           let aux;
           if ((email.toUpperCase()===email2.toUpperCase() && email!=='') && telefono!=='' && nombreCompleto!== '') {
-               console.log ('son iguales ===')
                aux=true;
           } else {
                aux=false;
-               console.log ('son distintos <>')
           }
           return aux;
      }
@@ -78,13 +75,11 @@ function Cart() {
           dbQuery.collection('orders').add(orden)
           .then ( response => {
                setIdCompra(response.id)
-               console.log (response.id)
           })
           .then ( () => handleRemoveAll() )
           .catch (err=> console.log (err))
           .finally (()=> setAlerta(true) );
      }
-
 
      useEffect(() => {
           hasCarList();
@@ -97,7 +92,7 @@ function Cart() {
      return (
           <>
                {    
-                    
+               // Si hay alerta está en true, es que se generó el ide de compra
                     alerta?
                          <Alert variant="success" h-100="true">
                               <Alert.Heading> Compra finalizada C:</Alert.Heading>
@@ -116,6 +111,7 @@ function Cart() {
                     :
                     <>
                          {
+                              // como alerta está en false, pregunta si tiene articulos para mostrar
                               tieneArticulos === true? (   
                                    <>
                                         <h1 className="h3 mt-3">Carrito de compras</h1>
@@ -154,11 +150,11 @@ function Cart() {
                                              </tbody>
                                         </Table>
                                         <Button variant="outline-danger" onClick={()=>handleRemoveAll()}> Vaciar Carrito </Button>
-                                        <hr class="my-4"/>
+                                        <hr className="my-4"/>
                                         <Container fluid className="d-flex justify-content-center">
                                              <Col md={4} className="border border-secondary m-3 p-3">
                                                   <h4>Datos del Comprador</h4>
-                                                  <hr class="my-4"/>
+                                                  <hr className="my-4"/>
                                                   <Col md={12} className="p-2 d-flex justify-content-center">
                                                        <Form >
                                                             <Form.Group className="xs mb-3" controlId="formBasicName">
@@ -190,6 +186,7 @@ function Cart() {
                                         </Container>
                                    </>    
                               ) : <>
+                              {/* si no tiene articulos para mostrar, avisa que el carrito está vacío */}
                                         <div className="div" style={{ width: '100%', display:'flex', alignItems:'center', justifyContent:'center' }}>
                                              <Link to="/" className="lottieSadBox">
                                                   <Lottie options={{animationData:lottieSadBox,...defAutoAnim}} height={300} width={300}/>
