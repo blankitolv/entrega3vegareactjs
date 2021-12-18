@@ -84,8 +84,6 @@ function Cart() {
      useEffect(() => {
           hasCarList();
           totalCompra();
-          // windows scro... lleva el navegador hacia arriba
-          window.scrollTo(0, 0);
           // eslint-disable-next-line
      }, [handleRemove,handleRemoveAll,tieneArticulos])
 
