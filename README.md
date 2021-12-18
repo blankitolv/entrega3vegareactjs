@@ -34,11 +34,7 @@ Editorial Intelectos SPA es construido bajo estas tecnologías
 
 ## INSTALACIÓN
 > git clone https://github.com/blankitolv/entrega3vegareactjs .
-
 > cd entrega3 .
-
 > npm i .
-
 > npm run start .
-
 - desarrollador: lucasvega2@gmail.com
